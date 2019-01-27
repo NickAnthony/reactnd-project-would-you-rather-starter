@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Home extends Component {
   render() {
     return (
       <div>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h3>Home</h3>
+        <ul>
+          {this.props.questionIds.map((id) =>
+            <li key={id}>
+              <div>Question Id: {id}</div>
+            </li>
+          )}
+        </ul>
       </div>
     );
   }
 }
 
-export default Home;
+function mapStateToProps( {questions} ){
+  return {
+    questionIds: Object.keys(questions)
+      .sort((a,b) => questions[b].timestamp - questions[a].timestamp)
+  };
+}
+export default connect(mapStateToProps)(Home);
