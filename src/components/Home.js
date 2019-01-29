@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import QuestionCard from './QuestionCard'
 
 class Home extends Component {
   render() {
@@ -7,28 +8,23 @@ class Home extends Component {
       <React.Fragment>
         <h3>Home</h3>
         <div>
+
           <h3>ALL QUESTIONS</h3>
           <ul>
             {this.props.questionIds.map((id) =>
-              <li key={id}>
-                <div>Ans Question Id: {id}</div>
-              </li>
+              <QuestionCard questionId={id} key={id}/>
             )}
           </ul>
           <h4>UNANSWERED QUESTIONS</h4>
           <ul>
             {this.props.unansweredQIds.map((id) =>
-              <li key={id}>
-                <div>Unans Question Id: {id}</div>
-              </li>
+              <QuestionCard questionId={id} key={id}/>
             )}
           </ul>
           <h4>ANSWERED QUESTIONS</h4>
           <ul>
             {this.props.answeredQIds.map((id) =>
-              <li key={id}>
-                <div>Ans Question Id: {id}</div>
-              </li>
+              <QuestionCard questionId={id} key={id}/>
             )}
           </ul>
         </div>
