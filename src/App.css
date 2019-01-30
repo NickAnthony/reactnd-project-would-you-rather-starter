@@ -30,3 +30,32 @@
     transform: rotate(360deg);
   }
 }
+
+@font-face {
+  font-family: 'Lato';
+  src: local('Lator'), url(./fonts/Lato-Regular.ttf) format('ttf');
+}
+
+.globalFont {
+  font-family: 'Lato';
+  font-size: 16px;
+}
+
+.cardColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardOutline {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  width: 30%;
+  border-width: 1px;
+  margin: 5px;
+  padding: 10px;
+}

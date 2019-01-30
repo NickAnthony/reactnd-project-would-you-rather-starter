@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './../App.css';
 
 class QuestionCard extends Component {
   render() {
+    const { question } = this.props;
     return (
-      <li>
-        <div>Question Id: {this.props.question.id}</div>
+      <li className="cardOutline globalFont">
+        <div>Question Id: {question.id}</div>
+        <button>{question.optionOne.text}</button>
+        <button>{question.optionTwo.text}</button>
       </li>
     )
   }

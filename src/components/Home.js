@@ -6,23 +6,16 @@ class Home extends Component {
   render() {
     return (
       <React.Fragment>
-        <h3>Home</h3>
-        <div>
-
-          <h3>ALL QUESTIONS</h3>
-          <ul>
-            {this.props.questionIds.map((id) =>
-              <QuestionCard questionId={id} key={id}/>
-            )}
-          </ul>
+        <div  className='globalFont'>
+          <h3>Home</h3>
           <h4>UNANSWERED QUESTIONS</h4>
-          <ul>
+          <ul className='cardColumn'>
             {this.props.unansweredQIds.map((id) =>
               <QuestionCard questionId={id} key={id}/>
             )}
           </ul>
           <h4>ANSWERED QUESTIONS</h4>
-          <ul>
+          <ul className='cardColumn'>
             {this.props.answeredQIds.map((id) =>
               <QuestionCard questionId={id} key={id}/>
             )}
