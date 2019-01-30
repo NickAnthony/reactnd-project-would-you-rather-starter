@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import './../App.css';
 
 class QuestionCard extends Component {
+  handleVote = (optionNum) => {
+
+  }
   render() {
     const { question } = this.props;
     return (
