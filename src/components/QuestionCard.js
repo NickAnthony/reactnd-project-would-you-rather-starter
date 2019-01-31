@@ -4,7 +4,9 @@ import './../App.css';
 
 class QuestionCard extends Component {
   handleVote = (optionNum) => {
-
+    if (optionNum === 1) {
+      saveQuestionAnswer
+    }
   }
   render() {
     const { question } = this.props;
