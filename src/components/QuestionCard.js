@@ -1,20 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './../App.css';
+import { handleSaveAnswer } from '../actions/questions'
+
 
 class QuestionCard extends Component {
   handleVote = (optionNum) => {
-    if (optionNum === 1) {
-      saveQuestionAnswer
-    }
+    var answer = (optionNum === 1) ? 'optionOne' : 'optionTwo'
+    const { dispatch, questionId, authedUser } = this.props
+    dispatch(handleSaveAnswer({
+      authedUser,
+      questionId,
+      answer
+    }))
   }
   render() {
     const { question } = this.props;
     return (
       <li className="cardOutline globalFont">
         <div>Question Id: {question.id}</div>
-        <button>{question.optionOne.text}</button>
-        <button>{question.optionTwo.text}</button>
+        <button value="1" onClick={(e) => {this.handleVote(1)}}>{question.optionOne.text}</button>
+        <div>OptionOne votes: {question.optionOne.votes.length}</div>
+        <button value="2" onClick={(e) => {this.handleVote(2)}}>{question.optionTwo.text}</button>
+        <div>OptionTwo votes: {question.optionTwo.votes.length}</div>
       </li>
     )
   }
@@ -23,6 +31,7 @@ class QuestionCard extends Component {
 function mapStateToProps( { questions, authedUser }, { questionId } ) {
   var question = questions[questionId]
   return {
+    questionId,
     question,
     authedUser,
   }

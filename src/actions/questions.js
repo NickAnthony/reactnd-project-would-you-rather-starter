@@ -15,25 +15,32 @@ export function handleAddQuestion(optionOneText, optionTwoText) {
     const { authedUser } = getState()
     // dispatch(showLoading())
     return saveQuestion(optionOneText, optionTwoText, authedUser)
-      .then((question) => dispatch(addQuestion(question)))
-      //.then(() => dispatch(hideLoading()))
+      .then((question) => {
+        dispatch(addQuestion(question))
+        // dispatch(hideLoading()
+      })
   }
 }
 
-export function saveAnswer(question) {
+export function saveAnswerToState({ questionId, authedUser, answer }) {
   return {
     type: SAVE_ANSWER,
-    // TODO: Add something here
+    questionId,
+    authedUser,
+    answer
   }
 }
-export function handleSaveAnswer(questionId, answer) {
-  return (dispatch, getState) => {
-    const { authedUser } = getState()
+export function handleSaveAnswer(answerInfo) {
+  return (dispatch) => {
     // dispatch(showLoading())
-    //_saveQuestion
-    return saveQuestionAnswer(authedUser, questionId, answer)
-      .then((question) => dispatch(saveAnswer(question)))
-      //.then(() => dispatch(hideLoading()))
+    return saveQuestionAnswer(answerInfo)
+      .catch((e) => {
+        console.warn("Error in saving answer ", e)
+      })
+      .then(() => {
+        dispatch(saveAnswerToState(answerInfo))
+        // dispatch(hideLoading())
+      })
   }
 }
 
