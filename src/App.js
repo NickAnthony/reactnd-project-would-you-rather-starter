@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import Home from './components/Home'
+import NavBar from './components/NavBar'
 import { handleInitialData } from './actions/shared'
 
 class App extends Component {
@@ -11,6 +12,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <NavBar/>
         <Home/>
       </div>
     );
