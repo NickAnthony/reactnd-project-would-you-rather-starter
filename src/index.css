@@ -13,11 +13,27 @@ code {
     monospace;
 }
 
+/* == For all components that need padding == */
+.padding {
+  padding: 10px;
+}
+
 .cardoutline {
   border: black;
   border-radius: 1px;
 }
 
+/* == New Question Component == */
+.NewQ {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.NewQOptions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 /* == HEADER == */
 .navBar {
   display: flex;

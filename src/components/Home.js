@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import QuestionCard from './QuestionCard'
+import NewQuestion from './NewQuestion'
 
 class Home extends Component {
   render() {
     return (
       <React.Fragment>
         <div  className='globalFont'>
+          <NewQuestion />
           <h3>Home</h3>
           <h4>UNANSWERED QUESTIONS</h4>
           <ul className='cardColumn'>
