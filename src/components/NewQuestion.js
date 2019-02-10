@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './../index.css'
+import { handleAddQuestion } from './../actions/questions'
 
 class NewQuestion extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      newQQuestion: '',
       newQOptionOne: '',
       newQOptionTwo: '',
     }
   }
 
   handleUpdateQ = (newVal, stateId) => {
-    console.log(newVal, stateId)
     this.setState((state) => {
       return {
         ...state,
@@ -21,17 +21,20 @@ class NewQuestion extends Component {
     });
   }
 
+  handleSaveQ = () => {
+    const { dispatch } = this.props
+    dispatch(handleAddQuestion(
+      this.state.newQOptionOne,
+      this.state.newQOptionTwo
+    ))
+  }
+
   render() {
     return (
       <div className="cardoutline NewQ">
         <h3> New Question </h3>
         <div className="padding">
-          Question:
-          <input
-            id='newQQuestion'
-            value={this.state.newQQuestion}
-            onChange={(e) => this.handleUpdateQ(e.target.value, e.target.id)}
-            />
+          Would you rather...
         </div>
         <div className="NewQOptions">
           <div className="padding">
@@ -51,10 +54,14 @@ class NewQuestion extends Component {
               />
           </div>
         </div>
+        <button
+          className="myButton"
+          onClick={(e) => this.handleSaveQ()}>
+          Save Question
+        </button>
       </div>
     )
   }
 }
-
 
 export default connect()(NewQuestion)
