@@ -12,6 +12,9 @@ class NewQuestion extends Component {
     }
   }
 
+  /* Updates local state with either stateId
+   * being either newQOptionOne or newQOptionTwo
+  */
   handleUpdateQ = (newVal, stateId) => {
     this.setState((state) => {
       return {

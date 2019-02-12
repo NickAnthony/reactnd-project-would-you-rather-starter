@@ -13,11 +13,33 @@ code {
     monospace;
 }
 
+button {
+  background-color: white; /* Green */
+  border: 1px solid;
+  color: #4CAF50;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  font-size: 16px;
+  -webkit-transition-duration: 0.2s; /* Safari */
+  transition-duration: 0.2s;
+}
+button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* == For all components that need padding == */
 .padding {
   padding: 10px;
 }
-
 .cardoutline {
   border: black;
   border-radius: 1px;
@@ -34,22 +56,7 @@ code {
   flex-direction: row;
   justify-content: center;
 }
-button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  -webkit-transition-duration: 0.2s; /* Safari */
-  transition-duration: 0.2s;
-}
-button:hover {
-  background-color: white; /* Green */
-  color: #4CAF50;
-}
+
 /* == HEADER == */
 .navBar {
   display: flex;
@@ -61,5 +68,20 @@ button:hover {
 
 .navBarItem {
   list-style-type: none;
-  padding: 10px;
+  text-decoration: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color: white; /* Green */
+  border: 1px solid;
+  color: #4CAF50;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 15px 15px 0px 0px;
+  margin: 5px;
+}
+.navBarItem:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
 }
