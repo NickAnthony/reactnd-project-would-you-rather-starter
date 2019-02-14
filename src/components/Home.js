@@ -3,23 +3,53 @@ import { connect } from 'react-redux';
 import QuestionCard from './QuestionCard'
 
 class Home extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      displayAnswered: false,
+    }
+  }
+
+  showAnsweredQuestions = (result) => {
+    this.setState({
+      displayAnswered: result
+    })
+  }
   render() {
     return (
       <React.Fragment>
         <div  className='globalFont'>
           <h3>Home</h3>
-          <h4>UNANSWERED QUESTIONS</h4>
-          <ul className='cardColumn'>
-            {this.props.unansweredQIds.map((id) =>
-              <QuestionCard questionId={id} key={id}/>
-            )}
-          </ul>
-          <h4>ANSWERED QUESTIONS</h4>
-          <ul className='cardColumn'>
-            {this.props.answeredQIds.map((id) =>
-              <QuestionCard questionId={id} key={id}/>
-            )}
-          </ul>
+          <div className="homeHeader">
+            <button
+              onClick={(e) => this. showAnsweredQuestions(false)}>
+              Unanswered Questions
+            </button>
+            <button
+              onClick={(e) => this. showAnsweredQuestions(true)}>
+              Answered Questions
+            </button>
+          </div>
+          { this.state.displayAnswered
+            ?
+            <React.Fragment>
+              <h4>UNANSWERED QUESTIONS</h4>
+              <ul className='cardColumn'>
+                {this.props.unansweredQIds.map((id) =>
+                  <QuestionCard questionId={id} key={id}/>
+                )}
+              </ul>
+            </React.Fragment>
+            :
+            <React.Fragment>
+              <h4>ANSWERED QUESTIONS</h4>
+              <ul className='cardColumn'>
+                {this.props.answeredQIds.map((id) =>
+                  <QuestionCard questionId={id} key={id}/>
+                )}
+              </ul>
+            </React.Fragment>
+          }
         </div>
       </React.Fragment>
     );

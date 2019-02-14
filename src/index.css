@@ -63,7 +63,10 @@ a {
   flex-direction: row;
   justify-content: center;
   list-style-type: none;
-  padding: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 1px solid #4CAF50;
 }
 
 .navBarItem {
@@ -79,7 +82,9 @@ a {
   font-size: 20px;
   font-weight: bold;
   border-radius: 15px 15px 0px 0px;
-  margin: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: -1px;
 }
 .navBarItem:hover {
   background-color: #4CAF50; /* Green */
