@@ -22,11 +22,11 @@ class Home extends Component {
           <h3>Home</h3>
           <div className="homeHeader">
             <button
-              onClick={(e) => this. showAnsweredQuestions(false)}>
+              onClick={(e) => this.showAnsweredQuestions(false)}>
               Unanswered Questions
             </button>
             <button
-              onClick={(e) => this. showAnsweredQuestions(true)}>
+              onClick={(e) => this.showAnsweredQuestions(true)}>
               Answered Questions
             </button>
           </div>
